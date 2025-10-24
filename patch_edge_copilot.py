@@ -123,13 +123,8 @@ def main():
             continue
         main_version = int(last_version.split('.')[0])
         print('Patching Edge', version, last_version, '"'+user_data_path+'"')
-        if main_version == 120:
-            patch_local_state(user_data_path)
-        elif main_version >= 121:
-            patch_preferences(user_data_path)
-        else:
-            patch_local_state(user_data_path)
-            patch_preferences(user_data_path)
+        patch_local_state(user_data_path)
+        patch_preferences(user_data_path)
 
     if len(terminated_edges) > 0:
         print('Restart Edge')
@@ -141,3 +136,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
