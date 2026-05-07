@@ -77,7 +77,7 @@ def patch_local_state(user_data_path):
     with open(local_state_file, 'r', encoding='utf-8') as fp:
         local_state = json.load(fp)
 
-    if local_state['variations_country'] != 'US':
+    if local_state.get('variations_country') != 'US':
         local_state['variations_country'] = 'US'
         with open(local_state_file, 'w', encoding='utf-8') as fp:
             json.dump(local_state, fp)
